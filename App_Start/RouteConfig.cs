@@ -13,6 +13,7 @@ namespace MVCDemoApplication
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Deafult route
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -26,6 +27,20 @@ namespace MVCDemoApplication
                 defaults: new { controller = "Process", action = "List", id = UrlParameter.Optional }
 
                 );
+
+
+            routes.MapRoute(
+                "Employee", "Employee/{name}", new
+                {
+
+                    Controller = "Employee",
+                    action = "Search",
+                    name = UrlParameter.Optional
+                }
+
+                );
+
+            
         }
     }
 }
